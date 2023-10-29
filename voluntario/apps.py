@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class SolidifyConfig(AppConfig):
+class VoluntarioConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'solidify'
+    name = 'voluntario'
