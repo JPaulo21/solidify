@@ -31,7 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'solidify.apps.SolidifyConfig',
+    'ong.apps.OngConfig',
+    'voluntario.apps.VoluntarioConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
