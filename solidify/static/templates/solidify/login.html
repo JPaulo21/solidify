@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Solidify</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/solidify-login.css' %}">
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <div>
+                <img src="{% static 'imgs/soli.png' %}" class="logo">
+            </div>
+            <div>
+                <nav>
+                    <a href="/">Home</a>
+                    <a>Cadastro</a>
+                    <a>Login</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="login">
+            <form method="post" action="{% url 'solidify:save_ong_adm' %}">
+                {% csrf_token %}
+                <div class="dados-login">
+                    <h1>Login</h1>
+                    <div class="dados">
+                        <label for="idCPF">CPF:</label>
+                        <input type="text" id="idCPF" name="USUARIO_CPF">
+                    </div>
+                    <div class="dados">
+                        <label for="idSenha">Senha:</label>
+                        <input type="password" id="idSenha" name="USUARIO_SENHA">
+                    </div>
+                </div>
+                <div class="btn">
+                    <input type="submit" value="Login" class="cad">
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
