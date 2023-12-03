@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito&display=swap');
+
+body {
+    font-family: 'Gabarito', sans-serif;
+}
+
+header {
+    background-color: #FF1F7D;
+    top: 0;
+    left: 0;
+    margin-bottom: 0vh;
+}
+
+.logo {
+    width: 14vw;
+    height: 8vh;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75vw;
+    height: 10vh;
+    margin: 0 auto;
+}
+
+.item-nav {
+    color: white;
+    padding: 2vh 1.5vw;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.item-nav:hover {
+    background-color: #ff539b;
+}
+
+/*-----------------------------------------------------------*/
+
+.menu_eventos {
+    /*border: 1px solid black;*/
+    border-radius: 10px;
+    padding: 1vh 2vw;
+    margin: 0 auto;
+    /*margin-top: 2vh;*/
+    width:75vw;
+    box-sizing: border-box;
+}
+
+.f {
+    color: #43057c;
+}
+
+.f:hover {
+    color: #7617ce;
+}
+
+.item-acao {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1.5vh 2vw;
+    margin: 1vh auto;
+    justify-content: space-between;
+}
+
+.titulo_data_vagas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 1vw;
+}
+
+.titulo_data {
+    display: flex;
+    align-items: center;
+    column-gap: 1vw;
+}
+
+.descricao p{
+    display: inline-block;
+    margin-top: 0;
+}
+
+.descricao p{
+    display: inline-block;
+    margin-top: 0;
+}
+
+.remover {
+    background-color: #FFFFFF;
+    color: #ff1313;
+    padding: 1vh .8vw;
+    border: 0;
+    border-radius: 12px;
+    cursor: pointer;
+    outline: none;
+}
+
+.remover:hover {
+    background-color: #ff1313;
+    color: #FFFFFF;
+    outline: none;
+}
+
+.remover:active {
+    border: 0;
+    cursor: pointer;
+    box-shadow: inset 0px 1px 5px 0px #000000;
+}
+
+.tabs {
+    display: flex;
+    column-gap: .1vw;
+    margin-bottom: 1vw;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + .tab {
+    padding: .5vh .5vw;
+    margin-bottom: .5vh;
+    background-color: white;
+    border: 0;
+    color: gray;
+    border-bottom: 2px gray solid;
+    font-size: medium;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked + .tab {
+    color: #3F8CFF;
+    border-color: #3F8CFF;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+footer {
+    width: 75vw;
+    margin: 0vh auto;
+}
+
+.footer-paragrafo{
+    box-sizing: border-box;
+    color: #FFFFFF;
+}
+
