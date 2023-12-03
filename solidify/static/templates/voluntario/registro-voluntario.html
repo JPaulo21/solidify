@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Voluntário</title>
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="shortcut icon" href="{% static 'imgs/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/voluntario-registro.css' %}">
+    <script src="{% static 'js/registro-voluntario.js' %}" defer></script>
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <div>
+                <img src="{% static 'imgs/soli.png' %}" class="logo">
+            </div>
+            <div>
+                <nav>
+                    <a href="/">Home</a>
+                    <a>Cadastro</a>
+                    <a href="{% url 'solidify:login' %}">Login</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <form id="voluntarioForm" method="post" action="{% url 'solidify:save-voluntario' %}">
+            {% csrf_token %}
+            <div class="ong">
+                <h1>Voluntário</h1>
+                <div class="ipt-dados-ong">
+                    <label for="volunt_nome">Nome: <input type="text" id="volunt_nome" name="V_NOME" required></label>
+                    <label for="volunt_email">Email: <input type="text" id="volunt_email" name="V_EMAIL"></label>
+                    <span id="msgErroEmail" class="erro"></span>
+                    <label for="volunt_dt_nasc">Data de Nascimento: <input type="date" id="volunt_dt_nasc" name="V_DT-NASC"></label>
+                </div>
+                <div>
+                    <h2>Login</h2>
+                    <label for="volunt_cpf">CPF:
+                        <input type="text" id="volunt_cpf" name="V_CPF" maxlength="14" minlength="14">
+                        <span id="msgErroCpf" class="erro"></span>
+                    </label>
+                    <label for="volunt_senha">Senha: <input type="password" id="volunt_senha" name="V_SENHA"></label>
+                </div>
+                <div class="ipt-dados-endereco">
+                    <h2>Endereço</h2>
+                    <label for="volunt_cep">CEP:
+                         <div class="busca">
+                            <input type="search" id="volunt_cep" name="V_CEP">
+                            <button class="btn-lupa" type="button" id="pesquisarEndereco">
+                                <i class="fa fa-search"></i>
+                            </button>
+                         </div>
+                    </label> <br>
+                    <div>
+                        <label for="volunt_endereco">Endereço: <input type="text" id="volunt_endereco" name="V_ENDERECO"></label>
+                        <label for="volunt_numero">N°: <input type="text" id="volunt_numero" name="V_NUMERO"></label>
+                        <label for="volunt_bairro">Bairro: <input type="text" id="volunt_bairro" name="V_BAIRRO"></label>
+                        <label for="volunt_cidade">Cidade: <input type="text" id="volunt_cidade" name="V_CIDADE"></label>
+                        <label for="volunt_uf">UF:
+                            <select id="volunt_uf" name="V_UF" required>
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="PE">PE</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <div class="btn">
+                    <input id="cadastrarBtn" type="submit" value="Cadastrar" class="cad">
+                </div>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
