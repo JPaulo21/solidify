@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="shortcut icon" href="{% static 'imgs/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/ong-register.css' %}">
 </head>
 <body>
@@ -24,7 +25,7 @@
         </div>
     </header>
     <main>
-        <form method="post" action="{% url 'solidify:save_ong_adm' %}">
+        <form method="post" action="{% url 'solidify:save_voluntario' %}">
             {% csrf_token %}
             <div class="ong">
                 <h1>ONG</h1>
