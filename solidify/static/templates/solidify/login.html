@@ -5,7 +5,9 @@
     <title>Solidify</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="shortcut icon" href="{% static 'imgs/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/solidify-login.css' %}">
+    <script src="{% static 'js/login.js' %}" defer></script>
 </head>
 <body>
     <header>
@@ -17,28 +19,28 @@
                 <nav>
                     <a href="/">Home</a>
                     <a>Cadastro</a>
-                    <a>Login</a>
                 </nav>
             </div>
         </div>
     </header>
     <main>
         <div class="login">
-            <form method="post" action="{% url 'solidify:save_ong_adm' %}">
+            <form id="voluntarioForm" action="{% url 'solidify:logar' %}" method="post">
                 {% csrf_token %}
                 <div class="dados-login">
                     <h1>Login</h1>
                     <div class="dados">
                         <label for="idCPF">CPF:</label>
-                        <input type="text" id="idCPF" name="USUARIO_CPF">
+                        <input type="text" id="idCPF" name="USUARIO_CPF" required maxlength="14">
                     </div>
                     <div class="dados">
                         <label for="idSenha">Senha:</label>
-                        <input type="password" id="idSenha" name="USUARIO_SENHA">
+                        <input type="password" id="idSenha" name="USUARIO_SENHA" required>
                     </div>
+                    <span id="msgErro" class="erro"></span>
                 </div>
                 <div class="btn">
-                    <input type="submit" value="Login" class="cad">
+                    <input type="submit" value="Entrar" class="cad">
                 </div>
             </form>
         </div>

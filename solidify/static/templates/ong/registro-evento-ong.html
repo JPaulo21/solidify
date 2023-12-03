@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>ONG</title>
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="shortcut icon" href="{% static 'imgs/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/ong-novo-evento.css' %}">
+    <script src="{% static 'js/novo-evento-ong.js' %}" defer></script>
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <div>
+                <img src="{% static 'imgs/soli.png' %}" class="logo">
+            </div>
+            <div>
+                <nav>
+                    <a>Olá, {{usuario.NOME}}</a>
+                    <a href="{% url 'solidify:home-adm' %}" class="nav-item">Home</a>
+                    <a class="nav-item" href="{% url 'solidify:logout' %}">Sair</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div class="evento">
+                <div class="nav_dados">
+                    <h1 class="titulo">Evento</h1>
+                    <a class="proximo" id="proximo">próximo ></a>
+                    <a class="anterior" id="anterior" style="display:none;">< anterior</a>
+                </div>
+                <form method="POST" action="{% url 'solidify:save-new-event' %}">
+                    {% csrf_token %}
+                    <div class="dados-eventos" >
+                        <div class="dados">
+                            <h2>Dados </h2>
+                            <div>
+                                <label for="titulo-evento">Título: </label>
+                                <input class="ipt_titulo" type="text" id="titulo-evento" name="EVENTO_TITULO">
+                            </div>
+                             <div>
+                                <label for="data-evento">Data: </label>
+                                <input class="ipt_data" type="date" id="data-evento" name="EVENTO_DATA_REALIZACAO">
+                            </div>
+                             <div class="descricao">
+                                <label for="titulo-evento">Descrição: </label>
+                                <textarea class="ipt_descricao" id="descricao-evento" rows="5" cols="80" name="EVENTO_DESCRICAO"></textarea>
+                            </div>
+                        </div>
+                        <div class="ipt-dados-endereco">
+                            <h2>Endereço</h2>
+                            <label for="evento_cep">CEP:
+                                 <div class="busca">
+                                    <input type="search" id="evento_cep" name="E_CEP" maxlength="9">
+                                    <button class="btn-lupa" id="pesquisarEndereco">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                 </div>
+                            </label> <br>
+                            <div class="dado-endereco">
+                                <label for="evento_endereco">Endereço: <input type="text" id="evento_endereco" name="E_ENDERECO"></label>
+                                <label for="evento_numero">N°: <input type="text" id="evento_numero" name="E_NUMERO" maxlength="5"></label>
+                                <label for="evento_bairro">Bairro: <input type="text" id="evento_bairro" name="E_BAIRRO"></label>
+                                <label for="evento_cidade">Cidade: <input type="text" id="evento_cidade" name="E_CIDADE"></label>
+                                <label for="evento_uf">UF:
+                                    <select id="evento_uf" name="E_UF">
+                                        <option value="AC">AC</option>
+                                        <option value="AL">AL</option>
+                                        <option value="BA">BA</option>
+                                        <option value="CE">CE</option>
+                                        <option value="PE">PE</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vagas" style="display:none;">
+                        <h2>Vagas</h2>
+                        <div class="dados_tabela">
+                            <table border="1" class="tabela">
+                                <thead>
+                                    <th>
+                                        <div>
+                                            <label for="cargo">Cargo: </label>
+                                            <input class="input_cargo" type="text" id="cargo">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div>
+                                            <label for="numero">N°: </label>
+                                            <input class="input_numeroo" type="text" id="numero">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <button id="addCargo" class="add" type="button">Adicionar</button>
+                                    </th>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td>Total</td>
+                                        <td id="total">0</td>
+                                        <input type="hidden" name="NR_VOLUNTARIOS" id="input-total">
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="btn">
+                            <input id="cadastrarBtn" type="submit" value="Cadastrar" class="cad">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

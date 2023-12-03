@@ -5,6 +5,7 @@
     <title>Solidify</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="shortcut icon" href="{% static 'imgs/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/solidify-home.css' %}">
 </head>
 <body>
@@ -15,36 +16,41 @@
             </div>
             <div>
                 <nav>
-                    <a>Home</a>
-                    <a>ONG</a>
-                    <a>Voluntário</a>
+                    <a href="">Home</a>
+                    <a href="{% url 'solidify:ong_home' %}">ONG</a>
+                    <a href="{% url 'solidify:voluntario_home' %}">Voluntário</a>
                     <a href="{% url 'solidify:login' %}">Login</a>
                 </nav>
             </div>
         </div>
     </header>
     <main>
-        <div class="x">
-            <img src="{% static 'imgs/home.png' %}">
+        <section class="section">
             <div>
-                <div class="paragrafo-texto">
-                    <h2>Seja um Voluntário!!!</h2>
-                </div>
-                <div class="paragrafo-texto fundo">
-                    <p>
-                        Seja um voluntário, pois juntos podemos construir um mundo mais solidário, justo e compassivo. Seu tempo e esforço são valiosos, e cada ação, por menor que seja, contribui para um impacto positivo duradouro. Não espere mais, comece a fazer a diferença hoje e inspire outros a se juntarem a você nessa jornada de bondade e generosidade. O mundo precisa do seu coração solidário.
-                    </p>
-                    <img src="{% static 'imgs/image2.png' %}" class="img-fundo">
-                </div>
-                <div class="paragrafo-texto">
-                    <p>Clique aqui e faça seu cadastro </p>
+                <img src="{% static 'imgs/home_solidify.png' %}">
+            </div>
+            <div class="secao-texto">
+                <h2>Sua presença pode contribuir para mundança um mundo melhor, conecte-se as causas que importam!</h2>
+                <div class="x">
+                        <div class="item">
+                            <p class="texto">
+                                Ao se cadastrar no Solidify, você estará dando um passo importante para fortalecer sua missão e promover um impacto ainda maior. Junte-se a nós hoje mesmo e seja parte dessa rede de solidariedade e transformação.
+                                Pronto para começar? Faça parte do Solidify e leve sua causa para novos patamares.
+                            </p>
+                        </div>
+                        <div class="item">
+                            <div class="balao">
+                                <p class="texto">Comece a fazer a diferença agora mesmo</p>
+                            </div>
+                        </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
     <footer>
-        <div class="footer-paragrafo fundo">
+        <div class="paragrafo footer">
             <p>contato@solidify.com.br</p>
+            <p>Termos de Uso - Política de Privacidade</p>
         </div>
     </footer>
 </body>
