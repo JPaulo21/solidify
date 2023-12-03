@@ -1,5 +1,5 @@
 .idea
-mysite\__pycache__
-solidify\__pycache__
+mysite/__pycache__
+solidify/__pycache__
 mysite/__pycache__/settings.cpython-312.pyc
 mysite/__pycache__/urls.cpython-312.pyc
