@@ -71,7 +71,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="dat
     border: 1px solid gray;
 }
 
-input[type="text"]:focus , input[type="password"]:focus , input[type="email"]:focus, input[type="date"]:focus {
+input[type="text"]:focus , input[type="password"]:focus , input[type="email"]:focus , input[type="date"]:focus  {
     border: 1.8px solid #cc1fff ;
 }
 
@@ -81,6 +81,11 @@ input[type="text"]:focus , input[type="password"]:focus , input[type="email"]:fo
     padding: .5vh .3vw;
     display: inline-block;
 }
+
+.busca:focus-within  {
+    border: 1.8px solid #cc1fff ;
+}
+
 input[type="search"] {
     border: 0;
     outline: 0;
@@ -90,16 +95,11 @@ input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
 
-.busca:focus-within  {
-    border: 1.8px solid #cc1fff ;
-}
-
-.btn-lupa, .btn-lupa:focus {
+.btn-lupa {
     padding: 1vh 1vw;
     border: 0;
     border-radius: 16px;
     cursor: pointer;
-    outline:0;
 }
 
 .btn-lupa:active {
@@ -118,7 +118,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .ipt-dados-ong {
-    margin: 2vh 0vw 1vh;
+    margin: 2vh 0vw 2vh;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -126,7 +126,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .ipt-dados-endereco {
-    margin: 2vh 0vw 1vh;
+    margin: 3vh 0vw 2vh;
     display: flex;
     flex-wrap: wrap;
     gap: 2vh 2vw;
@@ -141,20 +141,23 @@ input[type="search"]::-webkit-search-cancel-button {
     gap: 2vh 2vw;
 }
 
-#idAdmNome, #idOngNome  {
-   width: 40vw;
-}
-
-#idOngEndereco, #idAdmEmail, #idAdmSenha {
+#volunt_nome, #idOngNome  {
    width: 30vw;
 }
 
-#idOngUF {
+#volunt_endereco, #idAdmSenha {
+   width: 35vw;
+}
+
+#volunt_email {
+    width: 25vw;
+}
+
+#volunt_uf {
     padding: .5vh .3vw;
 }
 
 .btn{
-    width: 75vw;
     margin: 0vh auto;
     padding: 0vh auto;
     text-align: center;

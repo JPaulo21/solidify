@@ -97,10 +97,24 @@ input[type="submit"] {
     font-size:2vh 2vw;
 }
 
-input[type="submit"]:hover  {
+input[type="submit"]:hover,  input[type="submit"]:focus {
     color: white;
     background-color: #FF1F7D;
     border: 0;
     cursor: pointer;
     box-shadow: #FF1F7D 0px 2px 20px 0px;
+    outline:0;
+}
+
+input[type="submit"]:active {
+    color: white;
+    background-color: #FF1F7D;
+    border: 0;
+    cursor: pointer;
+    box-shadow: inset 0px 1px 5px 0px #a21a53;
+    outline:0;
+}
+
+.erro p {
+    color: red;
 }

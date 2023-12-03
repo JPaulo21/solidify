@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito&display=swap');
+
+body {
+    font-family: 'Gabarito', sans-serif;
+}
+
+header {
+    background-color: #FF1F7D;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    margin-bottom: 0vh;
+}
+
+.logo {
+    width: 14vw;
+    height: 8vh;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75vw;
+    height: 10vh;
+    margin: 0 auto;
+}
+
+.nav-item {
+    color: white;
+    padding: 2vh 1.5vw;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    background-color: #ff539b;
+}
+
+/*---------------------------------------------------------*/
+
+.evento {
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+    margin: 2vh auto 3vh;
+    padding: 1vh 2vw;
+    box-shadow: 4px 4px 7px gray, -4px -4px 7px gray;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.nav_dados {
+    display:flex;
+    justify-content:space-between;
+    align-items: baseline;
+}
+
+.titulo {
+    display:inline-block;
+}
+
+.proximo {
+    text-decoration: underline;
+    color: #3F8CFF;
+}
+
+.proximo:active, anterior:active {
+    color: #2e6bc5;
+}
+
+.anterior:hover, .proximo:hover {
+    background-color:none;
+    cursor: pointer;
+}
+
+.dados {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+}
+
+.descricao {
+    display: flex;
+    align-items: flex-start;
+}
+
+.btn-lupa {
+    padding: 1vh 1vw;
+    border: 0;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="date"] {
+    padding: 1vh 1vw;
+    border-radius: 15px;
+    outline: 0;
+    border: 1px solid gray;
+}
+
+input[type="text"]:focus , input[type="password"]:focus , input[type="email"]:focus , input[type="date"]:focus  {
+    border: 1.8px solid #cc1fff ;
+}
+
+.busca {
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: .5vh .3vw;
+    display: inline-block;
+}
+
+input[type="search"] {
+    border: 0;
+    outline: 0;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.ipt-dados-endereco {
+    margin: 1vh 0vw 2vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: .2vh 2vw;
+    align-content: flex-start;
+}
+
+.dado-endereco {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vh 2vw;
+    align-items: center;
+}
+
+#evento_nome, #idOngNome  {
+   width: 30vw;
+}
+
+#evento_endereco {
+   width: 30vw;
+}
+
+#evento_numero {
+   width: 3vw;
+}
+
+#evento_uf {
+    padding: .5vh .3vw;
+}
+
+.btn{
+    margin: 0vh auto;
+    padding: 0vh auto;
+    text-align: center;
+}
+
+input[type="submit"] {
+    margin: 4vh auto;
+    padding: 1.5vh 1.5vw;
+    color: #FF1F7D;
+    background-color: white;
+    border: 1px solid #FF1F7D;;
+    border-radius: 5px;
+    font-size:2vh 2vw;
+}
+
+input[type="submit"]:hover  {
+    color: white;
+    background-color: #FF1F7D;
+    border: 0;
+    cursor: pointer;
+    box-shadow: #FF1F7D 0px 2px 20px 0px;
+}
+
+.erro p {
+    background-color:;
+    color: red;
+}
+
+
+/*--------------------------------------------------------*/
+
+.dados_cargo {
+    display:flex;
+    justify-content:flex-start;
+    column-gap: 2vw;
+}
+
+.anterior {
+    text-decoration: underline;
+    color: #3F8CFF;
+}
+
+.add {
+    margin: 4vh auto;
+    padding: .5vh .8vw;
+    color: #FF1F7D;
+    background-color: white;
+    border: 1px solid #FF1F7D;;
+    border-radius: 10px;
+    font-size:2vh 2vw;
+}
+
+.add:hover, .add:focus  {
+    color: white;
+    background-color: #FF1F7D;
+    border: 0;
+    cursor: pointer;
+    box-shadow: #FF1F7D 0px 1px 5px 0px;
+    outline: 0;
+}
+
+.add:active {
+    color: white;
+    background-color: #fb0069;
+    border: 0;
+    cursor: pointer;
+    box-shadow: inset 0px 1px 5px 0px #a21a53;
+}
+
+.dados_tabela {
+    margin-top: 2vh;
+}
+
+.tabela{
+    border: none;
+    text-align: left;
+}
+thead, thead th, thead tr, th{
+    border: none;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tfoot td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  background-color: #d7d7d7;
+}
