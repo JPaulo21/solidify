@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="shortcut icon" href="{% static 'imgs/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/ong-register.css' %}">
+    <script src="{% static 'js/registro-ong.js' %}" defer></script>
 </head>
 <body>
     <header>
@@ -25,33 +26,40 @@
         </div>
     </header>
     <main>
-        <form method="post" action="{% url 'solidify:save_ong_adm' %}">
+        <form id="voluntarioForm" method="post" action="{% url 'solidify:save_ong_adm' %}">
             {% csrf_token %}
             <div class="ong">
                 <h1>ONG</h1>
                 <div class="ipt-dados-ong">
-                    <label for="idOngNome">Nome: <input type="text" id="idOngNome" name="ONG_NOME"></label>
-                    <label for="idOngCnpj">CNPJ: <input type="text" id="idOngCnpj" name="ONG_CNPJ"></label>
-                    <label for="idOngDtFundacao">Data de fundação: <input type="text" id="idOngDtFundacao" name="ONG_DT-FUNDACAO"></label>
+                    <label for="idOngNome">Nome:
+                        <input type="text" id="idOngNome" name="ONG_NOME" maxlength="255" required>
+                    </label>
+                    <label for="idOngCnpj">CNPJ:
+                        <input type="text" id="idOngCnpj" name="ONG_CNPJ" required>
+                        <span id="msgErroCnpj" class="erro"></span>
+                    </label>
+                    <label for="idOngDtFundacao">Data de fundação: <input type="date" id="idOngDtFundacao" name="ONG_DT-FUNDACAO"></label>
                 </div>
                 <div class="endereco">
                     <h2>Endereço</h2>
-                    <label for="idOngCEP">CEP:
-                         <div class="busca">
-                            <input type="search" id="idOngCEP" name="ONG_CEP">
-                            <button class="btn-lupa">
-                                <i class="fa fa-search"></i>
-                            </button>
-                         </div>
-                    </label> <br>
+                   <label for="idOngCEP">CEP:
+                       <div class="busca">
+                           <input type="search" id="idOngCEP" name="ONG_CEP" maxlength="9">
+                           <button class="btn-lupa" id="pesquisarEndereco">
+                               <i class="fa fa-search"></i>
+                           </button>
+                       </div>
+                   </label> <br>
                    <div class="ipt-dados-endereco">
                        <label for="idOngEndereco">Endereço: <input type="text" id="idOngEndereco" name="ONG_ENDERECO"></label>
                        <label for="idOngNumero">N°: <input type="text" id="idOngNumero" name="ONG_NUMERO"></label>
                        <label for="idOngBairro">Bairro: <input type="text" id="idOngBairro" name="ONG_BAIRRO"></label>
                        <label for="idOngCidade">Cidade: <input type="text" id="idOngCidade" name="ONG_CIDADE"></label>
                        <label for="idOngUF">UF:
-                           <select id="idOngUF" name="ONG_UF">
+                           <select id="idOngUF" name="ONG_UF" required>
                                <option value="AC">AC</option>
+                               <option value="AL">AL</option>
+                               <option value="BA">BA</option>
                                <option value="PE">PE</option>
                            </select>
                        </label>
@@ -61,14 +69,18 @@
             <div class="adm">
                 <h1>Administrador</h1>
                  <div class="ipt-dados-adm">
-                    <label for="idAdmNome">Nome: <input type="text" id="idAdmNome" name="ADM_NOME"></label>
-                    <label for="idAdmNome">CPF: <input type="text" id="idAdmCPF" name="ADM_CPF"></label>
-                    <label for="idAdmEmail">Email: <input type="email" id="idAdmEmail" name="ADM_EMAIL"></label>
-                    <label for="idAdmSenha">Senha: <input type="password" id="idAdmSenha" name="ADM_SENHA"></label>
+                    <label for="idAdmNome">Nome: <input type="text" id="idAdmNome" name="ADM_NOME" required></label>
+                    <label for="idAdmNome">CPF:
+                        <input type="text" id="idAdmCPF" name="ADM_CPF" required>
+                        <span id="msgErroCpf" class="erro"></span>
+                    </label>
+                    <label for="idAdmEmail">Email: <input type="email" id="idAdmEmail" name="ADM_EMAIL" required></label>
+                     <span id="msgErroEmail" class="erro"></span>
+                    <label for="idAdmSenha">Senha: <input type="password" id="idAdmSenha" name="ADM_SENHA" required></label>
                 </div>
             </div>
             <div class="btn">
-                <input type="submit" value="Cadastrar" class="cad">
+                <input id="btnCadastrar" type="submit" value="Cadastrar" class="cad">
             </div>
         </form>
     </main>
