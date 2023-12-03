@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Voluntário</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="shortcut icon" href="{% static 'imgs/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/voluntario-participar-evento.css' %}">
+    <!--<script src="{% static 'js/home-voluntario.js' %}" defer></script>-->
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <div>
+                <img src="{% static 'imgs/soli.png' %}" class="logo">
+            </div>
+            <div>
+                <nav>
+                    <a class="item-nav">Olá, {{ voluntario.NOME }}</a>
+                    <a class="item-nav" href="{% url 'solidify:home-voluntario' %}">Home</a>
+                    <a class="item-nav" href="{% url 'solidify:logout' %}">Sair</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="evento">
+            <div class="cabecalho">
+                <h1>{{ evento.TITULO }}</h1>
+                <p>{{ evento.ID_ONG }}</p>
+            </div>
+            <p class="data">{{ evento.DATA_REALIZACAO }}</p>
+            <p>{{ evento.DESCRICAO }}</p>
+            <form method="POST" action="{% url 'solidify:save-participacao' %}">
+                {% csrf_token %}
+                <div class="opcoes" >
+                <h2>Vagas</h2>
+                    <input type="hidden" name="vaga_voluntario" value="{{ voluntario.id }}">
+                    <input type="hidden" name="vaga_evento" value="{{ evento.id }}">
+                    <input type="hidden" name="vaga_ong" value="{{ evento.ID_ONG.id }}">
+                    <input type="hidden" name="vaga_cpf" value="{{ voluntario.CPF }}">
+                    <input type="hidden" name="vaga_nome" value="{{ voluntario.NOME }}">
+                    {% for vaga in vagas %}
+                        <div class="opcao">
+                            <label for="id{{ vaga.CARGO }}">
+                                <input id="id{{ vaga.CARGO }}" type="radio" name="vaga_cargo" value="{{ vaga.CARGO }}" {% if vaga.VAGAS_DISPONIVEIS == 0 %}style="pointer-events: none;" disabled{% endif %}>{{ vaga.CARGO }}
+                            </label>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="btn">
+                    <button>Participar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
