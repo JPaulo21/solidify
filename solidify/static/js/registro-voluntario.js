@@ -63,7 +63,10 @@ document.getElementById('volunt_cep').addEventListener('keydown', (event) =>  {
     const cepInput = event.target;
     const key = event.key;
 
-    if (event.key === 'Backspace' || event.key === 'Delete' || event.key === 'Tab' || event.key === 'Escape' || event.key === 'Enter' || event.key === 'v' && (event.ctrlKey || event.metaKey)) {
+    const isAllowedKey = /^\d$/.test(key) || ['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'Control', 'v'].includes(key);
+    
+    if (!isAllowedKey) {
+        event.preventDefault();
         return;
     }
 
