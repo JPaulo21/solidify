@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito&display=swap');
+
+body {
+    font-family: 'Gabarito', sans-serif;
+}
+
+header {
+    background-color: #FF1F7D;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    margin-bottom: 0vh;
+}
+
+.logo {
+    width: 14vw;
+    height: 8vh;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75vw;
+    height: 10vh;
+    margin: 0 auto;
+}
+
+a {
+    color: white;
+    padding: 2vh 1.5vw;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #ff539b;
+}
+
+/*-----------------------------------------------------------*/
+
+main {
+    width: 99vw;
+    height: 30vh;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+    margin: 6vh auto 3vh;
+    padding: 1vh 2vw;
+    box-shadow: 4px 4px 7px gray, -4px -4px 7px gray;
+    border-radius: 15px;
+    box-sizing: border-box;
+    background: linear-gradient(#BC67FF,#FFCFFA,#FFFFFF);
+}
+
+.dados-login {
+    margin: 2vh 0vw 1vh;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh 2vw;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 1vh 1vw;
+    border-radius: 15px;
+    outline: 0;
+    border: 1px solid gray;
+}
+
+.dados {
+    margin: 2vh 0vw 1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2vh 2vw;
+}
+
+.btn{
+    margin: 0vh auto;
+    padding: 0vh auto;
+    text-align: center;
+}
+
+input[type="submit"] {
+    margin: 4vh auto;
+    padding: 1.5vh 1.5vw;
+    color: #FF1F7D;
+    background-color: white;
+    border: 1px solid #FF1F7D;;
+    border-radius: 5px;
+    font-size:2vh 2vw;
+}
+
+input[type="submit"]:hover,  input[type="submit"]:focus {
+    color: white;
+    background-color: #FF1F7D;
+    border: 0;
+    cursor: pointer;
+    box-shadow: #FF1F7D 0px 2px 20px 0px;
+    outline:0;
+}
+
+input[type="submit"]:active {
+    color: white;
+    background-color: #FF1F7D;
+    border: 0;
+    cursor: pointer;
+    box-shadow: inset 0px 1px 5px 0px #a21a53;
+    outline:0;
+}
+
+.erro p {
+    color: red;
+}

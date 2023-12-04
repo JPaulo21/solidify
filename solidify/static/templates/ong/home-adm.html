@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>ONG</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="shortcut icon" href="{% static 'imgs/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/ong-home.css' %}">
+</head>
+<body>
+     <header>
+        <div class="menu">
+            <div>
+                <img src="{% static 'imgs/soli.png' %}" class="logo">
+            </div>
+            <div>
+                <nav>
+                    <a>Olá, {{usuario.NOME}}</a>
+                    <a href="{% url 'solidify:logout' %}">Sair</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div class="menu_eventos">
+                <div style="display:flex; align-items: center;">
+                    <h1>Eventos</h1>
+                    <a href="{% url 'solidify:new-event' %}" class="novoEventoButton">Novo Evento</a>
+                </div>
+                <div>
+                    <div class="tabs">
+                        <div>
+                            <input type="radio" name="tab-item" id="idCadastrar" class="radio cadastar" checked>
+                            <label for="idCadastrar" class="tab inscritos">Próximas Ações</label>
+                        </div>
+                    </div>
+                    <div class="acoes">
+                        {% for evento in eventos %}
+                            <div class="item-acao">
+                                <div>
+                                    <input type="hidden" value="{{ evento.id }}">
+                                    <div class="titulo_data_vagas">
+                                        <div class="titulo_data">
+                                            <h3>{{ evento.TITULO }}</h3>
+                                            <p>{{ evento.DATA_REALIZACAO }}</p>
+                                        </div>
+                                        <div>
+                                          <label for="">Nº Participantes <strong>{{ evento.NR_OCUPADOS }}/{{ evento.NR_VOLUNTARIOS }}</strong></label> 
+                                        </div>
+                                    </div>
+                                    <div class="descricao">
+                                        <p style="overflow-x:auto;">{{ evento.DESCRICAO }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

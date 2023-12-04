@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Voluntário</title>
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.15.4/css/all.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="shortcut icon" href="{% static 'imgs/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/voluntario-home.css' %}">
+    <script src="{% static 'js/home-voluntario.js' %}" defer></script>
+</head>
+<body>
+     <header>
+        <div class="menu">
+            <div>
+                <img src="{% static 'imgs/soli.png' %}" class="logo">
+            </div>
+            <div>
+                <nav>
+                    <a class="item-nav">Olá, {{voluntario.NOME}}</a>
+                    <a href="{% url 'solidify:logout' %}" class="item-nav">Sair</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div class="menu_eventos">
+                <h1>Eventos</h1>
+                <div>
+                    <div class="tabs">
+                        <div>
+                            <input type="radio" name="tab-item" id="inscritosInput" class="radio cadastar" checked>
+                            <label for="inscritosInput" class="tab inscritos">Inscrito</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="tab-item" id="proxEventosInput" class="radio prox-evento">
+                            <label for="proxEventosInput" class="tab prox-evento" >Próximos Eventos</label>
+                        </div>
+                    </div>
+                    <div class="participando">
+                        {% for evento in eventos_inscrito %}
+                            <input type="hidden" value="{{ evento.id }}">
+                            <div class="item-acao">
+                                <div>
+                                    <form method="post" action="{% url 'solidify:retirar-participacao' %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="evento_id" value="{{ evento.id }}">
+                                        <input type="hidden" name="volunt_id" value="{{ voluntario.id }}">
+                                        <div class="titulo_data_vagas">
+                                            <div class="titulo_data">
+                                                <h3>{{ evento.TITULO }}</h3>
+                                                <p>{{ evento.DATA_REALIZACAO }}</p>
+                                            </div>
+                                            <div>
+                                            <button class="remover" >
+                                                <i class="fas fa-sign-out-alt"></i>
+                                            </button>
+                                            </div>
+                                        </div>
+                                        <div class="descricao">
+                                            <p style="overflow-x:auto;">{{ evento.DESCRICAO }}</p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="eventos-regiao" style="display:none;">
+                        {% for evento in eventos %}
+                            <input type="hidden" value="{{ evento.id }}">
+                            <div class="item-acao">
+                                <div>
+                                    <div class="titulo_data">
+                                        <h3>{{ evento.TITULO }}</h3>
+                                        <p>{{ evento.DATA_REALIZACAO }}</p>
+                                        <p>{{ evento.ID_ONG.NOME }}</p>
+                                    </div>
+                                    <div class="descricao">
+                                        <p>{{ evento.DESCRICAO }}</p>
+                                    </div>
+                                </div>
+                                <div class="detalhar">
+                                    <a href="/voluntario/evento/{{ evento.id }}" class="f">Detalhar</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
