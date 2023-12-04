@@ -13,9 +13,9 @@ normalize.css==2.3.4
 packaging==23.2
 pip-tools==7.3.0
 psycopg2==2.9.9
+pypiwin32==223
 pyproject_hooks==1.0.0
 pytz==2023.3.post1
-pywin32==306
 requests==2.31.0
 setuptools==69.0.2
 sqlparse==0.4.4
