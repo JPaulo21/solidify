@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-*7jccdmcfrev5!9)kj8h_g_*8d-vh=m1-+lv0mw%g=14!ss&v=')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -128,7 +128,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'solidify/static'),
 ]
 
-if not DEBUG:    # Tell Django to copy statics to the `staticfiles` directory
+if 'RENDER' not in os.environ:    # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
     STATIC_ROOT = os.path.join(BASE_DIR, 'solidify/static')
     # Turn on WhiteNoise storage backend that takes care of compressing static files
