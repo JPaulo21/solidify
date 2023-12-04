@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://root:WPDpZvAxbW5eLhfxS89X5oeHG3WfbOWm@dpg-clmi4hhfb9qs739dv3g0-a.frankfurt-postgres.render.com/solidify',
+        default='postgres://root:WPDpZvAxbW5eLhfxS89X5oeHG3WfbOWm@dpg-clmi4hhfb9qs739dv3g0-a/solidify',
         conn_max_age=600
     )
 }
