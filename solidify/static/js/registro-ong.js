@@ -27,8 +27,8 @@ document.getElementById('idOngCEP').addEventListener('keydown', (e) =>  {
     const cepInput = e.target;
     const key = e.key;
 
-    const isAllowedKey = /^\d$/.test(key) || ['Backspace', 'Delete', 'Tab', 'Escape', 'Enter'].includes(key);
-
+    const isAllowedKey = /^\d$/.test(key) || ['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'Control', 'v'].includes(key);
+    
     if (!isAllowedKey) {
         e.preventDefault();
         return;
